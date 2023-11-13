@@ -1,0 +1,172 @@
+<div ng-app="" class="card-container">
+    <div class="card">
+        <p class="col-sm-12">Lorem Ipsum is simply dummy text</p>
+        <h1 class="col-sm-12">Validating form input</h1>
+        <hr>
+        
+        <form name="form1" #userlogin = "ngForm" (ngSubmit)="onClickSubmit()" novalidate>
+            <!-- {{formData | json}} -->
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label">Minimum value</label>
+                    <input type="text" id="minValue" class="form-control" name="minValue" [(ngModel)]="formData.minValue" placeholder="Minimum value" required>
+                    <span [ngClass]="visible1 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+                <div class="col-sm-6">
+                    <label class="control-label">Maximum value</label>
+                    <input type="text" id="maxValue" class="form-control" name="maxValue" [(ngModel)]="formData.maxValue" placeholder="Maximum value" required>
+                    <span [ngClass]="visible2 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label">Range value</label>
+                    <input type="text" id="rangeValue" class="form-control" name="rangeValue" [(ngModel)]="formData.rangeValue" placeholder="Range value" required>
+                    <span [ngClass]="visible3 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+                <div class="col-sm-6">
+                    <label class="control-label">Minimum length</label>        
+                    <input type="text" id="minLength" class="form-control" name="minLength" [(ngModel)]="formData.minLength" placeholder="Minimum length" required>
+                    <span [ngClass]="visible4 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label">Maximum length</label>
+                    <input type="text" id="maxLength" class="form-control" name="maxLength" [(ngModel)]="formData.maxLength" placeholder="Maximum length" required>
+                    <span [ngClass]="visible5 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+                <div class="col-sm-6">
+                    <label class="control-label">Range length</label>                   
+                    <input type="text" id="rangeLength" class="form-control" name="rangeLength" [(ngModel)]="formData.rangeLength" placeholder="Range length" required>
+                    <span [ngClass]="visible6 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label">Required field</label>
+                    <input type="text" id="reqField" class="form-control" name="reqField" [(ngModel)]="formData.reqField" placeholder="Required field" required>
+                    <span [ngClass]="visible7 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+                <div class="col-sm-6">  
+                    <label class="control-label">Email</label>                 
+                    <input type="text" id="email" class="form-control" name="email" [(ngModel)]="formData.email" placeholder="Email" required>
+                    <span [ngClass]="visible8 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+           
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label">Digits validation</label>
+                    <input type="text" id="dgtValidation" class="form-control" name="dgtValidation" [(ngModel)]="formData.dgtValidation" placeholder="Digits validation" required>
+                    <span [ngClass]="visible9 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+                <div class="col-sm-6">
+                    <label class="control-label">Decimal number validation</label>                
+                    <input type="text" id="decNumValidation" class="form-control" name="decNumValidation" [(ngModel)]="formData.decNumValidation" placeholder="Decimal number validation" required>
+                    <span [ngClass]="visible10 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label">URL validation</label>
+                    <input type="text" id="urlValidation" class="form-control" name="urlValidation" [(ngModel)]="formData.urlValidation" placeholder="URL validation" required>
+                    <span [ngClass]="visible11 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>  
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label">Web-site:</label>
+                    <select formControlName="website" class="form-control" name="website" #website (change)="onSelected(website.value)" required>
+                        <!-- <select formControlName="website" class="form-control" name="website" id="website" [(ngModel)]="formData.website" required> -->
+                        <!-- <option *ngFor="let web of website" [value]="web">{{web}}</option> -->
+                        <!-- <option default>Select Web-site</option> -->
+                        <option>chrome</option>
+                        <option>microsoft edge</option>
+                        <option>firefox</option>
+                        <option>internet explorer</option>
+                    </select>
+                    <span [ngClass]="visible12 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="control-label" style="width: 0;">validation</label>
+                    <input type="checkbox" id="valCheckbox"  name="valCheckbox" class="chk" [(ngModel)]="formData.valCheckbox" required>
+                    <!-- <span [ngClass]="visible13 ? ' ' : 'hidden'" style="color: red;">This field is mandatory</span> -->
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" id="submitForm" class="btn" ng-model="btn">submit</button>
+                </div>            
+            </div>           
+        </form>
+    </div>
+    <div *ngIf="submitted" class="card-container table-bordered col-sm-12">
+        <h3 class="mb-5 container-fluid">Submitted Data:</h3>
+        <table>
+            <tr>
+                <th class="col-sm-3">minValue: </th>
+                <td class="col-sm-3">{{ formData.minValue }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">maxValue: </th>
+                <td class="col-sm-3">{{ formData.maxValue }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">rangeValue: </th>
+                <td class="col-sm-3">{{ formData.rangeValue }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">minLength: </th>
+                <td class="col-sm-3">{{ formData.minLength }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">maxLength: </th>
+                <td class="col-sm-3">{{ formData.maxLength }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">rangeLength: </th>
+                <td class="col-sm-3">{{ formData.rangeLength }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">reqField: </th>
+                <td class="col-sm-3">{{ formData.reqField }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">email: </th>
+                <td class="col-sm-3">{{ formData.email }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">dgtValidation: </th>
+                <td class="col-sm-3">{{ formData.dgtValidation }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">decNumValidation: </th>
+                <td class="col-sm-3">{{ formData.decNumValidation }}</td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">urlValidation: </th>
+                <td class="col-sm-3">{{ formData.urlValidation }} </td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">website: </th>
+                <td class="col-sm-3">{{ formData.website }} </td>
+            </tr>
+            <tr>
+                <th class="col-sm-3">validation: </th>
+                <td class="col-sm-3">{{ formData.valCheckbox }} </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<br><br>
+
